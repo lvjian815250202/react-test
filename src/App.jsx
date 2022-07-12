@@ -1,12 +1,19 @@
 import React from 'react';
-import { Button } from 'antd';
 import './resource/base.css';
-import {Outlet } from "react-router-dom"
-export default function App(){
+import { Outlet, useNavigate } from "react-router-dom"
+export default function App() {
+  let navigate = useNavigate();
+  function toLogin() {
+    navigate('/login')
+  }
+  function toList() {
+    navigate('/list')
+  }
   return (
     <div>
-       <Button type="primary">Button</Button>
-       <Outlet/>
+      <div onClick={toLogin}>登录</div>
+      <div onClick={toList}>列表</div>
+      <Outlet />
     </div>
   )
 }
